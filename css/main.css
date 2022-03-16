@@ -1,14 +1,14 @@
 .card{
     outline: none;
     border: none;
+    margin: 0% !important;
 }
 img{
-    height: 25vh;
-    border: 2px solid black;
+    height: 20vh;
+    width: 200px !important;
+    border: 3px solid black;
     border-radius: 20px;
 }
-.main-item{
-    margin-top: 60px;
-    margin-bottom: 50px;
-    height: 35vh;
+.card2 img{
+    height: 50vh;
 }
