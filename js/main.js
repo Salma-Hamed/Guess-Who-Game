@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 var machineChar = Math.floor(Math.random() * 20); 
+var rand
 do
 {
-    var rand = Math.floor(Math.random() * 20);
+    rand = Math.floor(Math.random() * 20);
 }while(machineChar == rand);
 console.log(machineChar, rand);
 
@@ -27,10 +27,3 @@ function ask(){
     document.getElementById('ask-in').style.display="inline";
     document.getElementById('ask-fun').style.display="inline";
 }
-=======
-function begin(){
-    var playerCard = document.getElementById('player-card')
-    var rand = Math.floor(Math.random() * 20); 
-    playerCard.innerHTML = `<img class="w-100" src="./images/ch${rand}.jpg" alt="">`
-}
->>>>>>> 1c787e25acd516b58c96d04b316afe0f63ae81dc
