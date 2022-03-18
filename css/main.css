@@ -25,14 +25,33 @@ img{
     height: 50vh;
 }
 /*  start button  */
-.st-btn{
+.st-btn, .ask-btn{
     background-color: green;
     color: white;
     border-radius: 30px;
-    border: 1 px solid rgb(0, 83, 0);
+    border: 1px solid rgb(0, 83, 0);
     font-size: 22px;
     width: 120px;
 }
+.ask-btn{
+    width: 220px;
+
+}
 .new{
     flex-wrap: wrap !important;
+}
+
+#guess-in, #ask-in, .guess-btn, .ask-btn{
+    display: none;
+}
+#guess-in, #ask-in{
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 22px;
+    width: 350px;
+}
+#ask-fun, #guess-fun{
+    width: 100px;
+    padding: 6px;
+    border-radius: 5px;
 }

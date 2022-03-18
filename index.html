@@ -13,10 +13,10 @@
             <div class="container2">
                 <div class="items">
                     <div class="row">
-                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="col-md-6 d-flex new justify-content-center align-items-center">
                             <div class="item d-flex flex-wrap justify-content-center align-items-center">
                                 <div class="col-md-12 d-flex mb-5 justify-content-center align-items-center">
-                                    <button class="st-btn" onclick="begin()">Start</button>
+                                    <button  id="start-btn" class="st-btn" onclick="begin()">Start</button>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -33,6 +33,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex new justify-content-center align-items-center">
+                                <button id="ask-btn" class="ask-btn mr-1" onclick="ask()">Ask a question</button>
+                                <button id="guess-btn" class="ask-btn ml-1" onclick="guess()">Make a guess</button>
+                                <div class="item">
+                                    <input type="text" placeholder="Ask a question" id="ask-in">
+                                    <button id="ask-fun" class="ask-btn">Ask</button>
+                                </div>
+                                <div class="item">
+                                    <input type="text" placeholder="Make a guess" id="guess-in">
+                                    <button id="guess-fun" class="ask-btn">Guess</button>
                                 </div>
                             </div>
                         </div>
