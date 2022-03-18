@@ -25,6 +25,7 @@ img{
     height: 50vh;
 }
 /*  start button  */
+<<<<<<< HEAD
 .st-btn, .ask-btn{
     background-color: green;
     color: white;
@@ -55,3 +56,16 @@ img{
     padding: 6px;
     border-radius: 5px;
 }
+=======
+.st-btn{
+    background-color: green;
+    color: white;
+    border-radius: 30px;
+    border: 1 px solid rgb(0, 83, 0);
+    font-size: 22px;
+    width: 120px;
+}
+.new{
+    flex-wrap: wrap !important;
+}
+>>>>>>> 1c787e25acd516b58c96d04b316afe0f63ae81dc
