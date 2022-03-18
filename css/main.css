@@ -1,3 +1,15 @@
+/*  first section  */
+.fst-section{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.container2{
+    padding: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 100%;
+}
 .card{
     outline: none;
     border: none;
@@ -11,4 +23,16 @@ img{
 }
 .card2 img{
     height: 50vh;
+}
+/*  start button  */
+.st-btn{
+    background-color: green;
+    color: white;
+    border-radius: 30px;
+    border: 1 px solid rgb(0, 83, 0);
+    font-size: 22px;
+    width: 120px;
+}
+.new{
+    flex-wrap: wrap !important;
 }
