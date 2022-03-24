@@ -1,5 +1,6 @@
 var flip = [];
 var flip2 = [];
+var askedBefore = [];
 window.onload = function(){
     flipCards();
 }
@@ -143,14 +144,13 @@ var questions = ["Is the character a male?",
                  "Is the character's hair brown?",
                  "Is the character's hair white?"
                 ]
-var qNum = Math.floor(Math.random() * 13);
+var qNum;
 
 var machineGuessChar = []; 
 do
 {
     rand = Math.floor(Math.random() * 20);
 }while(machineChar == rand);
-console.log(machineChar, rand);
 
 function begin(){
     var playerCard = document.getElementById('player-card');
@@ -181,7 +181,9 @@ function playerTurn(k){
             }
         }
         else{
-            
+            askedBefore.push(8); // not bald
+            askedBefore.push(4); // no mustatche
+            askedBefore.push(5); // no beard
             for(var i = 0; i < characters.length; i++)
             {
                 if(characters[i].male)
@@ -332,9 +334,19 @@ function playerTurn(k){
     {
         if(k)
         {
+            askedBefore.push(0);
+            askedBefore.push(1);
+            askedBefore.push(2);
+            askedBefore.push(3);
+            askedBefore.push(5);
+            askedBefore.push(6);
+            askedBefore.push(7);
+            askedBefore.push(10); // no yellow hair
+            askedBefore.push(11); // no brown hair
+            askedBefore.push(12); // no white hair
             for(var i = 0; i < characters.length; i++)
             {
-                if(!characters[i].bald)
+                if(characters[i].hair != 'bald')
                 {
                     if(!flip2.includes(i))
                     flip2.push(i);
@@ -346,7 +358,7 @@ function playerTurn(k){
             
             for(var i = 0; i < characters.length; i++)
             {
-                if(characters[i].bald)
+                if(characters[i].hair == 'bald')
                 {
                     if(!flip2.includes(i))
                     flip2.push(i);
@@ -418,6 +430,9 @@ function playerTurn(k){
         {
             if(k)
             {
+                askedBefore.push(8);
+                askedBefore.push(10);
+                askedBefore.push(12);
                 for(var i = 0; i < characters.length; i++)
                 {
                     if(characters[i].hair != 'brown')
@@ -445,6 +460,9 @@ function playerTurn(k){
         {
             if(k)
             {
+                askedBefore.push(8);
+                askedBefore.push(11);
+                askedBefore.push(12);
                 for(var i = 0; i < characters.length; i++)
                 {
                     if(characters[i].hair != 'yellow')
@@ -472,6 +490,9 @@ function playerTurn(k){
         {
             if(k)
             {
+                askedBefore.push(8);
+                askedBefore.push(10);
+                askedBefore.push(11);
                 for(var i = 0; i < characters.length; i++)
                 {
                     if(characters[i].hair != 'white')
@@ -541,7 +562,7 @@ function ask(){
 }
 function ansQuestion(q){
     
-    if(q.includes('male'))
+    if((q.includes('male') && !q.includes('female')) || q.includes('boy'))
     {
         if(characters[machineChar].male)
         {
@@ -551,13 +572,12 @@ function ansQuestion(q){
                 {
                     if(!flip.includes(i))
                     flip.push(i);
-
                 }
             }
-            console.log(flip);
             return true;
         }
-        else{
+        else
+        {
             for(var i = 0; i < characters.length; i++)
             {
                 if(characters[i].male)
@@ -566,10 +586,35 @@ function ansQuestion(q){
                     flip.push(i);
                 }
             }
-            console.log(flip);
             return false;
         }
-
+    }
+    else if(q.includes('female') || q.includes('girl'))
+    {
+        if(!characters[machineChar].male) // girl
+        {
+            for(var i = 0; i < characters.length; i++)
+            {
+                if(characters[i].male) // flip boys
+                {
+                    if(!flip.includes(i))
+                    flip.push(i);
+                }
+            }
+            return true;
+        }
+        else
+        {
+            for(var i = 0; i < characters.length; i++)
+            {
+                if(!characters[i].male)
+                {
+                    if(!flip.includes(i))
+                    flip.push(i);
+                }
+            }
+            return false;
+        }
     }
     else if(q.includes('glasses'))
     {
@@ -597,7 +642,7 @@ function ansQuestion(q){
             return false;
         }
     }
-    else if(q.includes('cap'))
+    else if(q.includes('cap') || q.includes('hat'))
     {
         if(characters[machineChar].cap)
         {
@@ -623,7 +668,7 @@ function ansQuestion(q){
             return false;
         }
     }
-    else if(q.includes('mustatche'))
+    else if(q.includes('mustatche') || q.includes('moustatche'))
     {
         if(characters[machineChar].mustatche)
         {
@@ -675,7 +720,7 @@ function ansQuestion(q){
             return false;
         }
     }
-    else if(q.includes('dark skin'))
+    else if(q.includes('dark skin') || (q.includes('black')&&(!q.includes('hair'))))
     {
         if(characters[machineChar].darkSkin)
         {
@@ -1021,39 +1066,42 @@ function playerAsk(){
     flipCards();
     }, 3000)
     setTimeout(() =>{ 
-        if(flip2.length >= 18 || flip.length >= 18)
+        if(flip2.length >= 18 || (flip.length >= 19 && flip2.length >= 16))
         {
-            // var mayBe = [];
             var s;
             do{
                 s = Math.floor(Math.random() * 20);
             }while(flip2.includes(s));
-            // for(var i = 0; i < 20; i++)
-            // {
-            //     if(flip2.includes(i) == false)
-            //     {
-            //        mayBe.push(i);
-            //     }
-            // }
-            // s = Math.floor(Math.random() * mayBe.length);
-            // console.log(mayBe);
-            console.log(flip2);
             document.getElementById('mach-question').innerHTML = `I guess it's ` + characters[s].name;
             document.getElementById('mach-question').style.display = "block";
+            setTimeout(() => {
+                if(rand == s)
+                {
+                    alert("YOU LOSE!!, reload to start a new game");
+                }
+                else{
+                    alert("YOU WIN!!, reload to start a new game");
+                }
+            }, 2000);
             
         }
         else{
             machineMove()
         }  
-    }, 8000);
+    }, 5000);
     
 }
 function machineMove(){
+    do{
+        qNum = Math.floor(Math.random() * 13);
+    }while(askedBefore.includes(qNum));
+    
+    askedBefore.push(qNum);
     document.getElementById('mach-question').innerHTML = questions[qNum];
     document.getElementById('mach-question').style.display = "block";
     document.getElementById('yes').style.display="block";
     document.getElementById('no').style.display="block";
-    qNum = Math.floor(Math.random() * 13);
+    
 }
 function playerGuess(){
     var g = document.getElementById('guess-in').value;
