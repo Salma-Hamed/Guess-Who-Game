@@ -562,7 +562,7 @@ function ask(){
 }
 function ansQuestion(q){
     
-    if((q.includes('male') && !q.includes('female')) || q.includes('boy'))
+    if((q.includes('male') && !q.includes('female')) || q.includes('boy') || (q.includes('man') && !q.includes('woman')))
     {
         if(characters[machineChar].male)
         {
@@ -589,7 +589,7 @@ function ansQuestion(q){
             return false;
         }
     }
-    else if(q.includes('female') || q.includes('girl'))
+    else if(q.includes('female') || q.includes('girl') || q.includes('woman'))
     {
         if(!characters[machineChar].male) // girl
         {
