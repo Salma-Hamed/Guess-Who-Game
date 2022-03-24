@@ -25,11 +25,11 @@ img{
     height: 50vh;
 }
 /*  start button  */
-.st-btn, .ask-btn{
+.st-btn, .ask-btn, #yes, #no{
     background-color: green;
     color: white;
     border-radius: 30px;
-    border: 1px solid rgb(0, 83, 0);
+    border: 1px solid rgb(121, 189, 121);
     font-size: 22px;
     width: 120px;
 }
@@ -54,4 +54,22 @@ img{
     width: 100px;
     padding: 6px;
     border-radius: 5px;
+}
+.machine-q{
+    margin-top: 13px;
+    font-size: 22px;
+    justify-content: center;
+}
+#yes, #no{
+    display: none;
+    width: 50px;
+}
+#no{
+    background-color: rgb(156, 26, 26);
+}
+#no:hover{
+    background-color: rgb(199, 92, 92);
+}
+#yes:hover{
+    background-color: rgb(94, 156, 94);
 }
