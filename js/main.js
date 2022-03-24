@@ -1107,7 +1107,7 @@ function playerGuess(){
     var g = document.getElementById('guess-in').value;
     for (var i = 0; i < characters.length; i++)
     {
-        if(characters[i].name === g)
+        if(g.toLowerCase().includes(characters[i].name))
         {
             if(machineChar == i)
             {
